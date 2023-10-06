@@ -1,5 +1,9 @@
+<h1>Food List</h1>
 {% for food in foods %}
     <ul>
-        <li>{{ food.id }} - {{ food.item_name }}<br>Price: {{ food.item_price }}</li>
+        <hr>
+        <li>
+            <a href="{% url 'food:detail' food.id %}">{{ food.id }} - {{ food.item_name }}<br>Price: {{ food.item_price }}</a>
+        </li>
     </ul>
 {% endfor %}
