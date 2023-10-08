@@ -21,3 +21,6 @@ def detail(request, id):
     }
 
     return render(request, 'food/detail.html', context)
+
+def contact(request):
+    return render(request, 'food/contact.html')

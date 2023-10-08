@@ -8,4 +8,5 @@ urlpatterns = [
     #/food/1
     path('<int:id>/', views.detail, name='detail'),
     path('item/', views.item, name='item'),
+    path('contact/', views.contact, name='contact'),
 ]

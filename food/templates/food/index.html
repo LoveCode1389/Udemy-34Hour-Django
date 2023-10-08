@@ -1,9 +1,26 @@
-<h1>Food List</h1>
-{% for food in foods %}
-    <ul>
-        <hr>
-        <li>
-            <a href="{% url 'food:detail' food.id %}">{{ food.id }} - {{ food.item_name }}<br>Price: {{ food.item_price }}</a>
-        </li>
-    </ul>
-{% endfor %}
+{% extends 'food/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'food/home.css' %}">
+</head>
+<body>
+
+    {% block body %}
+        <h1>Food List</h1>
+        {% for food in foods %}
+            <ul>
+                <hr>
+                <li>{{ food.id }} - {{ food.item_name }}<br>Price: {{ food.item_price}}$</li>
+                <a href="{% url 'food:detail' food.id %}">Details</a>
+            </ul>
+        {% endfor %}
+        <a class="bg-dark" href="{% url 'food:contact'%}">Team Details</a>
+    {% endblock %}
+
+</body>
+</html>

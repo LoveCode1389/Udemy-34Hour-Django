@@ -1,3 +1,9 @@
-<h1>{{ food.item_name }}</h1>
-<h2>{{ food.item_desc }}</h2>
-<h3>{{ food.item_price }}</h3>
+{% extends 'food/base.html' %}
+{% load static %}
+
+{% block body %}
+<h2>Name: {{ food.item_name }}</h2>
+<h3>Description: {{ food.item_desc }}</h3>
+<h4>Price: {{ food.item_price }}$</h4>
+<a href="{% url 'food:index'%}">Back </a>
+{% endblock %}
