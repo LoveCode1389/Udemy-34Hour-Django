@@ -1,26 +1,22 @@
 {% extends 'food/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="{% static 'food/home.css' %}">
-</head>
-<body>
-
     {% block body %}
-        <h1>Food List</h1>
-        {% for food in foods %}
-            <ul>
-                <hr>
-                <li>{{ food.id }} - {{ food.item_name }}<br>Price: {{ food.item_price}}$</li>
-                <a href="{% url 'food:detail' food.id %}">Details</a>
-            </ul>
-        {% endfor %}
-        <a class="bg-dark" href="{% url 'food:contact'%}">Team Details</a>
+    <h1>Food List</h1>
+    {% for food in foods %}
+        <div class="row">
+            <div class="col-md-3 offset-md-2">
+                <img class="card mb-5" height="150px" src="{{ food.item_image }}">
+            </div>
+            <div class="col-md-4 mt-4">
+                <h3>{{ food.item_name }}</h3>
+                <h5>{{ food.item_desc }}</h5>
+                <h6>${{ food.item_price }}</h6>
+            </div>
+            <div class="col-md-2">
+                <a href="{% url 'food:detail' food.id %}" class="btn btn-outline-success mt-5">Details</a>
+                <a href="{% url 'food:update_food' food.id %}" class="btn btn-dark mt-5">Update</a>
+            </div>
+        </div>
+        
+    {% endfor %}
     {% endblock %}
-
-</body>
-</html>
