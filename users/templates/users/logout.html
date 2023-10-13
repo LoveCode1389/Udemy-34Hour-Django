@@ -1,0 +1,10 @@
+{% extends 'food/base.html' %}
+
+
+{% block body %}
+<div class="mt-4 ml-4">
+    <h1>You have been logged out</h1>
+    <a href="{% url 'food:index' %}" class="btn btn-success">Back</a>
+</div>
+{% endblock body %}
+    
